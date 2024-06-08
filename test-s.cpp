@@ -1,16 +1,32 @@
 #include <stdio.h>
 #include <conio.h>
-
-int main()
+void fun();
+void fun1();
+void fun2();
+int main() 
 {
-    int a = 4;
-    int n; 
-    
+    int a;
+    printf("Enter any value(1-prime,2-Factorial,3-Grading)=");
+    scanf("%d",&a);
+     // Declare n outside the switch statement    
     switch(a) 
 	{
-        case 1:
-            printf("Enter the limit: ");
-            scanf("%d", &n);
+        case 1:fun();
+               break;
+        case 2:fun1();
+               break;
+        case 3:fun2();
+               break;
+        default:
+            printf("Invalid number");
+    }
+    return 0;
+}
+void fun()
+{
+	 int n;
+	 printf("Enter the limit: ");
+     scanf("%d",&n);
             for (int i = 2; i <= n; i++)
 			 {
                 int isPrime = 1; // Declare isPrime inside the loop
@@ -26,18 +42,19 @@ int main()
                     printf("%d ", i);
                 }
             }
-            break;
-            
-        case 2:
-            int factorial = 1; // Declare factorial inside the case block
+}
+void fun1()
+{
+	        int n;
+	        int factorial = 1; // Declare factorial inside the case block
             scanf("%d", &n);
-            for (int i = 2; i <= n; ++i)
-			factorial *= i;
+            for (int i = 2; i <= n; ++i) factorial *= i;
             printf("%d\n", factorial);
-                    break;
-        case 3:
-		    int a;
-            printf("Enter your marks: ");
+}
+void fun2()
+{
+	        int a;
+	        printf("Enter your marks: ");
             scanf("%d", &a);
             if (a >= 90) 
 			{
@@ -61,10 +78,5 @@ int main()
 			{
                 printf("You have failed");
             }
-            break;
-            
-           default:
-            printf("Invalid number");
-    }
-    return 0;
 }
+
